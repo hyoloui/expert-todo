@@ -24,7 +24,7 @@ const TodoList = () => {
                     if (!todo.isDone) {
                         return (
                             <section key={todo.id}>
-                                <Link to={`/$todo.id`} key={todo.id}>
+                                <Link to={todo.id}>
                                     <span>상세보기</span>
                                 </Link>
                                 <div>

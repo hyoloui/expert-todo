@@ -77,6 +77,13 @@ const todos = (state = initialTodos, action) => {
                     }
                 }),
             };
+        case GET_TODO_BY_ID:
+            return {
+                ...state,
+                todo: state.todos.find((todo) => {
+                    return todo.id === action.payload;
+                }),
+            };
         default:
             return state;
     }

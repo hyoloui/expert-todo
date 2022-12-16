@@ -21,7 +21,6 @@ const OnTodo = () => {
                     <div>
                         <div>ID :{todo.id}</div>
                         <button
-                            borderColor="#ddd"
                             onClick={() => {
                                 navigate("/");
                             }}
@@ -30,7 +29,7 @@ const OnTodo = () => {
                         </button>
                     </div>
                     <h3>{todo.title}</h3>
-                    <span>{todo.body}</span>
+                    <span>{todo.content}</span>
                 </div>
             </div>
         </div>

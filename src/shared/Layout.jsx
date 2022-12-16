@@ -25,6 +25,7 @@ const layoutStyles = {
     flexDirection: "column",
     alignItems: "center",
     minHeight: "86vh",
+    justifyContent: "space-around",
 };
 
 // 레이아웃 컴포넌트

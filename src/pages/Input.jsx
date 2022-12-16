@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import nextId from "react-id-generator";
 import { addTodo } from "../redux/modules/todos";
+import styled from "styled-components";
 
 // Create API
 const Input = () => {
@@ -47,15 +48,44 @@ const Input = () => {
 
     return (
         <aside>
-            <form onSubmit={saveTodo}>
-                <label>제목 : </label>
-                <input type="text" name="title" onChange={onChangeHandler} value={todo.title}/>
-                <label>내용 : </label>
-                <input type="text" name="content" onChange={onChangeHandler} value={todo.content}/>
+            <TodoForm onSubmit={saveTodo}>
+                <TodoInputBox>
+                    <TodoLabel>제목 : </TodoLabel>
+                    <TodoInput type="text" name="title" onChange={onChangeHandler} value={todo.title}/>
+                </TodoInputBox>
+
+                <TodoInputBox>
+                    <TodoLabel>내용 : </TodoLabel>
+                    <TodoInput type="text" name="content" onChange={onChangeHandler} value={todo.content}/>
+                </TodoInputBox>
+
                 <button> 저장하기 </button>
-            </form>
+            </TodoForm>
         </aside>
     );
 };
 
+const TodoForm = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 10px;
+    padding: 20px;
+    border: 3px solid #ccc;
+    border-radius: 12px;
+`;
+
+const TodoInputBox = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0;
+`;
+
+const TodoLabel = styled.label`
+    margin: 0 5px;
+`;
+const TodoInput = styled.input`
+    width: 50%;
+`;
 export default Input;

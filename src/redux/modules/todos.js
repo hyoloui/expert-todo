@@ -3,22 +3,8 @@ const GET_TODO_BY_ID = "GET_TODO_BY_ID";
 const DELETE_TODO = "DELETE_TODO";
 const TOGGLE_STATUS_TODO = "TOGGLE_STATUS_TODO";
 
-const initialTodos = {
-    todos: [
-        {
-            id: "1",
-            title: "리액트",
-            content: "리액트를 배워봅시다",
-            isDone: false,
-        },
-    ],
-    todo: {
-        id: "0",
-        title: "",
-        content: "",
-        isDone: false,
-    },
-};
+
+// input.jsx 에서 생성한 state를 받아 submit 하면 이루어지는 action creator
 export const addTodo = (payload) => {
     return {
         type: ADD_TODO,
@@ -26,6 +12,7 @@ export const addTodo = (payload) => {
     };
 };
 
+// todo 해당 아이디값을 삭제하는 action creator
 export const deleteTodo = (payload) => {
     return {
         type: DELETE_TODO,
@@ -87,6 +74,36 @@ const todos = (state = initialTodos, action) => {
         default:
             return state;
     }
+};
+
+const initialTodos = {
+    todos: [
+        {
+            id: "1",
+            title: "과제 리뷰",
+            content: "리액트 >> 리덕스 과제 리뷰 해봅시다",
+            isDone: true,
+        },
+        {
+            id: "2",
+            title: "운동 가기",
+            content: "오늘은 하체를 박살내 봅시다",
+            isDone: false,
+        },
+        {
+            id: "3",
+            title: "치킨먹기",
+            content: "리액트를 배워봅시다",
+            isDone: true,
+        },
+    ],
+    // 기본 폼
+    todo: {
+        id: "0",
+        title: "",
+        content: "",
+        isDone: false,
+    },
 };
 
 export default todos;

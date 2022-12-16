@@ -93,7 +93,7 @@ const TodoList = () => {
         </div>
     );
 };
-// Styled component
+// Styled components
 const TodoSection = styled.section`
     margin: 10px;
     padding: 20px;

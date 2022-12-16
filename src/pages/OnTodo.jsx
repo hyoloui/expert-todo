@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import styled from "styled-components";
 import { getTodoByID } from "../redux/modules/todos.js";
 
 const OnTodo = () => {
@@ -15,10 +16,10 @@ const OnTodo = () => {
     }, [dispatch, id]);
 
     return (
-        <div>
-            <div>
-                <div>
-                    <div>
+        <ListContainer>
+            <Wrapper>
+                <TodoContainer>
+                    <LinkStyle>
                         <div>ID :{todo.id}</div>
                         <button
                             onClick={() => {
@@ -27,13 +28,47 @@ const OnTodo = () => {
                         >
                             이전으로
                         </button>
-                    </div>
-                    <h3>{todo.title}</h3>
-                    <span>{todo.content}</span>
-                </div>
-            </div>
-        </div>
+                    </LinkStyle>
+                    <Header>{todo.title}</Header>
+                    <li>{todo.content}</li>
+                </TodoContainer>
+            </Wrapper>
+        </ListContainer>
     );
 };
 
+const ListContainer = styled.div`
+    margin: auto 0;
+    padding: 0 20px;
+`;
+const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+`;
+const TodoContainer = styled.div`
+    width: 250px;
+    min-height: 150px;
+    border: 4px solid lightblue;
+    border-radius: 12px;
+    padding: 10px 24px 50px 24px;
+`;
+
+const LinkStyle = styled.div`
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 2px solid lightblue;
+    border-radius: 12px;
+`;
+
+const Header = styled.h3`
+    background-color: lightyellow;
+    padding: 5px;
+`;
+
+
+
 export default OnTodo;
+

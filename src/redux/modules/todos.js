@@ -8,14 +8,14 @@ const initialTodos = {
         {
             id: "1",
             title: "리액트",
-            body: "리액트를 배워봅시다",
+            content: "리액트를 배워봅시다",
             isDone: false,
         },
     ],
     todo: {
         id: "0",
         title: "",
-        body: "",
+        content: "",
         isDone: false,
     },
 };

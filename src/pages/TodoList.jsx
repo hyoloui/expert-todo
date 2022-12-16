@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import { deleteTodo, toggleStatusTodo } from "../redux/modules/todos";
 
 
@@ -23,7 +24,7 @@ const TodoList = () => {
                 {todos.map((todo) => {
                     if (!todo.isDone) {
                         return (
-                            <section key={todo.id}>
+                            <TodoSection key={todo.id}>
                                 <Link to={todo.id}>
                                     <span>상세보기</span>
                                 </Link>
@@ -37,7 +38,7 @@ const TodoList = () => {
                                         {todo.isDone ? "취소" : "완료"}
                                     </button>
                                 </footer>
-                            </section>
+                            </TodoSection>
                         );
                     } else {
                         return null;
@@ -49,7 +50,7 @@ const TodoList = () => {
                 {todos.map((todo) => {
                     if (todo.isDone) {
                         return (
-                            <section key={todo.id}>
+                            <TodoSection key={todo.id}>
                                 <Link to={`/$todo.id`} key={todo.id}>
                                     <span>상세보기</span>
                                 </Link>
@@ -63,7 +64,7 @@ const TodoList = () => {
                                         {todo.isDone ? "취소" : "완료"}
                                     </button>
                                 </footer>
-                            </section>
+                            </TodoSection>
                         );
                     } else {
                         return null;
@@ -75,4 +76,10 @@ const TodoList = () => {
     );
 };
 
+const TodoSection = styled.section`
+    margin : 10px;
+    padding : 20px;
+    border : 3px solid lightblue;
+    border-radius: 12px;
+`
 export default TodoList;
